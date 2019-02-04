@@ -1,0 +1,53 @@
+{
+  "name": "canvas-context",
+  "version": "1.0.0",
+  "description": "Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer), optionally offscreen for possible use in a Worker.",
+  "main": "lib/canvas-context.cjs.js",
+  "jsnext:main": "lib/canvas-context.esm.js",
+  "module": "lib/canvas-context.esm.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "author": "Damien Seguin (https://dmnsgn.me)",
+  "license": "MIT",
+  "scripts": {
+    "start": "rollup -c -w -m inline --environment NODE_ENV:development",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "test": "npm run build",
+    "clean": "rm -rf lib",
+    "preversion": "npm run clean",
+    "version": "npm run build && git add -A",
+    "postversion": "git push origin master && git push --tags && npm publish"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/preset-env": "^7.3.1",
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-terser": "^4.0.3"
+  },
+  "keywords": [
+    "canvas",
+    "context",
+    "offscreen",
+    "worker",
+    "offscreen-canvas",
+    "2d",
+    "webgl",
+    "experimental-webgl",
+    "webgl2",
+    "bitmaprenderer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dmnsgn/canvas-context.git"
+  },
+  "homepage": "https://github.com/dmnsgn/canvas-context",
+  "bugs": {
+    "url": "https://github.com/dmnsgn/canvas-context/issues"
+  }
+}

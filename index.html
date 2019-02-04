@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>canvas-context</title>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h2>Window context</h2>
+	<canvas id="canvas-window" width="100" height="100"></canvas>
+
+	<h2>Worker context</h2>
+	<canvas id="canvas-worker" width="100" height="100"></canvas>
+	<br>
+	<button id="button">Block the main thread</button>
+	<script src="demo.js" type="module"></script>
+</body>
+</html>

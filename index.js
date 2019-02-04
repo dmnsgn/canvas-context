@@ -1,0 +1,61 @@
+const contextTypeList = [
+  "2d",
+  "webgl",
+  "experimental-webgl",
+  "webgl2",
+  "bitmaprenderer"
+];
+
+export default function createCanvasContext(contextType = "2d", options = {}) {
+  // Get options and set defaults
+  const {
+    width,
+    height,
+    offscreen = false,
+    contextAttributes = {},
+    worker = false
+  } = {
+    ...options
+  };
+
+  // Check contextType is valid
+  if (!worker && !contextTypeList.includes(contextType)) {
+    throw new TypeError(`Unknown contextType: "${contextType}"`);
+  }
+
+  // Return in Node or in a Worker unless a canvas is provided
+  // See https://github.com/Automattic/node-canvas for an example
+  if (typeof window === "undefined" && !options.canvas) {
+    return null;
+  }
+
+  // Get offscreen canvas if requested and available
+  const canvasEl = options.canvas || document.createElement("canvas");
+  const canvas =
+    (offscreen || worker) && "OffscreenCanvas" in window
+      ? canvasEl.transferControlToOffscreen()
+      : canvasEl;
+
+  // Set canvas dimensions (default to 300 in browsers)
+  if (Number.isInteger(width) && width >= 0) canvas.width = width;
+  if (Number.isInteger(height) && height >= 0) canvas.height = height;
+
+  if (worker) return { canvas };
+
+  // Get the context with specified attributes and handle experimental-webgl
+  let context;
+  try {
+    context =
+      canvas.getContext(contextType, contextAttributes) ||
+      (contextType === "webgl"
+        ? canvas.getContext("experimental-webgl", contextAttributes)
+        : null);
+  } catch (error) {
+    context = null;
+  }
+
+  return {
+    canvas,
+    context
+  };
+}
