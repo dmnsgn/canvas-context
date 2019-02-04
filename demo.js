@@ -1,4 +1,4 @@
-import createCanvasContext from "/lib/canvas-context.esm.js";
+import createCanvasContext from "./lib/canvas-context.esm.js";
 
 // Store an animation function to evaluate later in both the window and worker
 const TEST_FUNCTION = /* js */ `
