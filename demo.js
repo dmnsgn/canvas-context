@@ -51,11 +51,6 @@ const url = URL.createObjectURL(blob);
 const worker = new Worker(url);
 URL.revokeObjectURL(url);
 
-const urlParts = location.href.split("/");
-if (urlParts[urlParts.length - 1].indexOf(".") !== -1) {
-  urlParts.pop();
-}
-
 // Worker can't transfer a canvas context so passing worker will only return an OffscreenCanvas
 const { canvas: offscreenCanvas } = createCanvasContext(null, {
   canvas: document.querySelector("#canvas-worker"),
@@ -65,7 +60,7 @@ const { canvas: offscreenCanvas } = createCanvasContext(null, {
 worker.postMessage(
   {
     msg: "canvas-context-init",
-    origin: urlParts.join("/"),
+    origin: window.location.href,
     canvas: offscreenCanvas
   },
   [offscreenCanvas]
