@@ -35,7 +35,8 @@ const blob = new Blob(
     /* js */ `
 self.onmessage = event => {
   if (event.data.msg == "canvas-context-init") {
-    importScripts(origin + "/lib/canvas-context.iife.js");
+    importScripts("https://unpkg.com/canvas-context@1.0.2/lib/canvas-context.iife.js");
+    // importScripts(origin + "/lib/canvas-context.iife.js");
 
     const { context } = createCanvasContext("2d", {
       canvas: event.data.canvas,
