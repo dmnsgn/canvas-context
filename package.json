@@ -1,6 +1,6 @@
 {
   "name": "canvas-context",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer), optionally offscreen for possible use in a Worker.",
   "main": "lib/canvas-context.cjs.js",
   "jsnext:main": "lib/canvas-context.esm.js",
