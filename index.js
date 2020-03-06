@@ -3,7 +3,9 @@ const contextTypeList = [
   "webgl",
   "experimental-webgl",
   "webgl2",
-  "bitmaprenderer"
+  "webgl2-compute",
+  "bitmaprenderer",
+  "gpupresent"
 ];
 
 export default function createCanvasContext(contextType = "2d", options = {}) {
