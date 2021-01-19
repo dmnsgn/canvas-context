@@ -1,7 +1,7 @@
 {
   "name": "canvas-context",
   "version": "2.0.0",
-  "description": "Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer), optionally offscreen for possible use in a Worker.",
+  "description": "Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.",
   "main": "lib/canvas-context.cjs.js",
   "jsnext:main": "lib/canvas-context.esm.js",
   "module": "lib/canvas-context.esm.js",
@@ -40,7 +40,8 @@
     "webgl",
     "experimental-webgl",
     "webgl2",
-    "bitmaprenderer"
+    "bitmaprenderer",
+    "gpupresent"
   ],
   "repository": {
     "type": "git",

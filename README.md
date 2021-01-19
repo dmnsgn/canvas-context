@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/canvas-context.svg)](https://www.npmjs.com/package/canvas-context)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer), optionally offscreen for possible use in a Worker.
+Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.
 
 ![](https://raw.githubusercontent.com/dmnsgn/canvas-context/master/screenshot.gif)
 
