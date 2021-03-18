@@ -2,34 +2,6 @@
   "name": "canvas-context",
   "version": "2.0.0",
   "description": "Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.",
-  "main": "lib/canvas-context.cjs.js",
-  "jsnext:main": "lib/canvas-context.esm.js",
-  "module": "lib/canvas-context.esm.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "author": "Damien Seguin (https://dmnsgn.me)",
-  "license": "MIT",
-  "scripts": {
-    "start": "rollup -c -w -m inline --environment NODE_ENV:development",
-    "build": "rollup -c --environment NODE_ENV:production",
-    "test": "npm run build",
-    "clean": "rm -rf lib",
-    "preversion": "npm run clean",
-    "version": "npm run build && git add -A",
-    "postversion": "git push origin master && git push --tags && npm publish"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/preset-env": "^7.8.7",
-    "rollup": "^2.0.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-serve": "^1.0.1",
-    "rollup-plugin-terser": "^5.2.0"
-  },
   "keywords": [
     "canvas",
     "context",
@@ -43,12 +15,26 @@
     "bitmaprenderer",
     "gpupresent"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dmnsgn/canvas-context.git"
-  },
   "homepage": "https://github.com/dmnsgn/canvas-context",
-  "bugs": {
-    "url": "https://github.com/dmnsgn/canvas-context/issues"
+  "bugs": "https://github.com/dmnsgn/canvas-context/issues",
+  "repository": "dmnsgn/canvas-context",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://paypal.me/dmnsgn"
+    },
+    {
+      "type": "individual",
+      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
+    }
+  ],
+  "license": "MIT",
+  "author": "Damien Seguin (https://github.com/dmnsgn)",
+  "type": "module",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
   }
 }

@@ -1,23 +1,125 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>canvas-context</title>
-	<style>
-		body {
-			font-family: sans-serif;
-		}
-	</style>
-</head>
-<body>
-	<h2>Window context</h2>
-	<canvas id="canvas-window" width="100" height="100"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>canvas-context by Damien Seguin (https://github.com/dmnsgn)</title>
+    <style>
+      :root {
+        --color-dark: #404040;
+        --color-light: #f2f2f2;
+        --color-accent: #fd5e62;
+      }
 
-	<h2>Worker context</h2>
-	<canvas id="canvas-worker" width="100" height="100"></canvas>
-	<br>
-	<button id="button">Block the main thread</button>
-	<script src="demo.js" type="module"></script>
-</body>
+      body {
+        margin: 0;
+        overscroll-behavior: none;
+        font-family: sans-serif;
+        color: var(--color-dark);
+        background-color: var(--color-light);
+      }
+
+      main {
+        padding: 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>canvas-context</h1>
+      <h2>Window context</h2>
+      <canvas id="canvas-window" width="100" height="100"></canvas>
+
+      <h2>Worker context</h2>
+      <canvas id="canvas-worker" width="100" height="100"></canvas>
+      <br />
+      <button id="button">Block the main thread</button>
+    </main>
+
+    <script type="module">
+      import createCanvasContext from "./index.js";
+
+      // Store an animation function to evaluate later in both the window and worker
+
+      const TEST_FUNCTION = /* js */ `
+const loop = () => {
+  const now = Date.now() * 0.005;
+
+  // Clear
+  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+  // Draw
+  context.save();
+  context.translate(50, 50);
+  context.beginPath();
+  context.arc(0, 0, 25 - Math.cos(now) * 10, 0, 2 * Math.PI);
+  context.fillStyle = "${window
+    .getComputedStyle(document.documentElement)
+    .getPropertyValue("--color-accent")}";
+  context.fill();
+  context.restore();
+
+  requestAnimationFrame(loop);
+};
+loop();
+`;
+
+      // Create a usual context in Window
+      const { context } = createCanvasContext("2d", {
+        canvas: document.querySelector("#canvas-window"),
+        offscreen: true,
+      });
+
+      new Function(["context"], TEST_FUNCTION)(context);
+
+      // Use a Worker
+      const packageUrl = new URL("./index.js", import.meta.url).href;
+      const blob = new Blob(
+        [
+          /* js */ `
+import createCanvasContext from "${packageUrl}";
+
+addEventListener("message", ({ data }) => {
+  if (data.msg == "canvas-context-init") {
+    const { context } = createCanvasContext("2d", {
+      canvas: data.canvas,
+    });
+    ${TEST_FUNCTION}
+  }
+});
+      `,
+        ],
+        { type: "text/javascript" }
+      );
+      const worker = new Worker(URL.createObjectURL(blob), { type: "module" });
+
+      // Worker can't transfer a canvas context so passing worker will only return an OffscreenCanvas
+      const { canvas: offscreenCanvas } = createCanvasContext(null, {
+        canvas: document.querySelector("#canvas-worker"),
+        worker: true,
+      });
+
+      worker.postMessage(
+        { msg: "canvas-context-init", canvas: offscreenCanvas },
+        [offscreenCanvas]
+      );
+
+      // Simulate a thread blocking action
+      function blockThread(milliseconds) {
+        const start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if (new Date().getTime() - start > milliseconds) {
+            break;
+          }
+        }
+      }
+
+      document.querySelector("#button").addEventListener("click", () => {
+        requestAnimationFrame(() => {
+          blockThread(2500);
+        });
+      });
+    </script>
+  </body>
 </html>
