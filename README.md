@@ -1,4 +1,4 @@
-# canvas-context [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+# canvas-context
 
 [![npm version](https://img.shields.io/npm/v/canvas-context)](https://www.npmjs.com/package/canvas-context)
 [![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)](https://www.npmjs.com/package/canvas-context)
