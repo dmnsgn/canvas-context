@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.1](https://github.com/dmnsgn/canvas-context/compare/v3.0.0...v3.0.1) (2021-03-22)
+
+
+### Bug Fixes
+
+* add sideEffects key to package.json ([5a0110e](https://github.com/dmnsgn/canvas-context/commit/5a0110ed66fa12ccd9b1961e6b0a185dd26b1b6e))
+
+
+
 ## [3.0.0](https://github.com/dmnsgn/canvas-context/compare/v2.0.0...v3.0.0) (2021-03-18)
 
 
