@@ -1,6 +1,6 @@
 {
   "name": "canvas-context",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.",
   "keywords": [
     "canvas",
