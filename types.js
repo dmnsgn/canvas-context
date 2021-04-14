@@ -16,3 +16,5 @@
  * @property {HTMLCanvasElement | OffscreenCanvas} canvas
  * @property {RenderingContext} context
  */
+
+export {};

@@ -16,9 +16,9 @@ const contextTypeList = [
  * Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.
  *
  * @alias module:createCanvasContext
- * @param {ContextType} [contextType="2d"]
- * @param {CanvasContextOptions} [options={}]
- * @returns {CanvasContextReturnValue}
+ * @param {import("./types.js").ContextType} [contextType="2d"]
+ * @param {import("./types.js").CanvasContextOptions} [options={}]
+ * @returns {import("./types.js").CanvasContextReturnValue}
  */
 function createCanvasContext(contextType = "2d", options = {}) {
   // Get options and set defaults
