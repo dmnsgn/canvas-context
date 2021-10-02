@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.1.0](https://github.com/dmnsgn/canvas-context/compare/v3.0.2...v3.1.0) (2021-10-02)
+
+
+### Features
+
+* add exports field to package.json ([1237509](https://github.com/dmnsgn/canvas-context/commit/12375095edb87e72dcde45600652707ffcf4492a))
+
+
+
 ## [3.0.2](https://github.com/dmnsgn/canvas-context/compare/v3.0.1...v3.0.2) (2021-04-14)
 
 
