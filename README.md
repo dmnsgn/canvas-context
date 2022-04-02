@@ -52,7 +52,7 @@ const { context, canvas } = createCanvasContext("2d", {
 ## Typedefs
 
 <dl>
-<dt><a href="#ContextType">ContextType</a> : <code>&quot;2d&quot;</code> | <code>&quot;webgl&quot;</code> | <code>&quot;experimental-webgl&quot;</code> | <code>&quot;webgl2&quot;</code> | <code>&quot;webgl2-compute&quot;</code> | <code>&quot;bitmaprenderer&quot;</code> | <code>&quot;gpupresent&quot;</code></dt>
+<dt><a href="#ContextType">ContextType</a> : <code>&quot;2d&quot;</code> | <code>&quot;webgl&quot;</code> | <code>&quot;experimental-webgl&quot;</code> | <code>&quot;webgl2&quot;</code> | <code>&quot;webgl2-compute&quot;</code> | <code>&quot;bitmaprenderer&quot;</code> | <code>&quot;gpupresent&quot;</code> | <code>&quot;webgpu&quot;</code></dt>
 <dd><p>A DOMString containing the context identifier defining the drawing context associated to the canvas.</p>
 </dd>
 <dt><a href="#CanvasContextOptions">CanvasContextOptions</a> : <code>Object</code></dt>
@@ -70,7 +70,7 @@ const { context, canvas } = createCanvasContext("2d", {
 
 ### createCanvasContext([contextType], [options]) ⇒ [<code>CanvasContextReturnValue</code>](#CanvasContextReturnValue) ⏏
 
-Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.
+Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, webgpu), optionally offscreen for possible use in a Worker.
 
 **Kind**: Exported function
 
@@ -81,18 +81,18 @@ Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optio
 
 <a name="ContextType"></a>
 
-## ContextType : <code>&quot;2d&quot;</code> \| <code>&quot;webgl&quot;</code> \| <code>&quot;experimental-webgl&quot;</code> \| <code>&quot;webgl2&quot;</code> \| <code>&quot;webgl2-compute&quot;</code> \| <code>&quot;bitmaprenderer&quot;</code> \| <code>&quot;gpupresent&quot;</code>
+## ContextType : <code>&quot;2d&quot;</code> \| <code>&quot;webgl&quot;</code> \| <code>&quot;experimental-webgl&quot;</code> \| <code>&quot;webgl2&quot;</code> \| <code>&quot;webgl2-compute&quot;</code> \| <code>&quot;bitmaprenderer&quot;</code> \| <code>&quot;gpupresent&quot;</code> \| <code>&quot;webgpu&quot;</code>
 
 A DOMString containing the context identifier defining the drawing context associated to the canvas.
 
-**Kind**: global typedef  
+**Kind**: global typedef
 <a name="CanvasContextOptions"></a>
 
 ## CanvasContextOptions : <code>Object</code>
 
 Options for canvas creation. All optional.
 
-**Kind**: global typedef  
+**Kind**: global typedef
 **Properties**
 
 | Name                | Type                                                                                 | Default            | Description                            |
@@ -107,7 +107,7 @@ Options for canvas creation. All optional.
 
 ## CanvasContextReturnValue : <code>Object</code>
 
-**Kind**: global typedef  
+**Kind**: global typedef
 **Properties**
 
 | Name    | Type                                                           |
