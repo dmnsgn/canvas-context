@@ -10,10 +10,11 @@ const contextTypeList = [
   "webgl2-compute",
   "bitmaprenderer",
   "gpupresent",
+  "webgpu",
 ];
 
 /**
- * Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, gpupresent), optionally offscreen for possible use in a Worker.
+ * Create a RenderingContext (2d, webgl, webgl2, bitmaprenderer, webgpu), optionally offscreen for possible use in a Worker.
  *
  * @alias module:createCanvasContext
  * @param {import("./types.js").ContextType} [contextType="2d"]

@@ -1,5 +1,5 @@
 /**
- * @typedef {"2d" | "webgl" | "experimental-webgl" | "webgl2" | "webgl2-compute" | "bitmaprenderer" | "gpupresent"} ContextType A DOMString containing the context identifier defining the drawing context associated to the canvas.
+ * @typedef {"2d" | "webgl" | "experimental-webgl" | "webgl2" | "webgl2-compute" | "bitmaprenderer" | "gpupresent" | "webgpu"} ContextType A DOMString containing the context identifier defining the drawing context associated to the canvas.
  */
 
 /**
