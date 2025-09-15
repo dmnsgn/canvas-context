@@ -95,13 +95,14 @@ Options for canvas creation. All optional.
 **Kind**: global typedef
 **Properties**
 
-| Name                | Type                                                                                 | Default            | Description                            |
-| ------------------- | ------------------------------------------------------------------------------------ | ------------------ | -------------------------------------- |
-| [width]             | <code>number</code>                                                                  | <code>300</code>   | Request an initial canvas width.       |
-| [height]            | <code>number</code>                                                                  | <code>150</code>   | Request an initial canvas height.      |
-| [offscreen]         | <code>boolean</code>                                                                 | <code>false</code> | Request an offscreen canvas.           |
-| [worker]            | <code>boolean</code>                                                                 | <code>false</code> | Handle use in a worker.                |
-| [contextAttributes] | <code>CanvasRenderingContext2DSettings</code> \| <code>WebGLContextAttributes</code> | <code>{}</code>    | Attributes to be passed to getContext. |
+| Name                | Type                                                                                 | Default                | Description                            |
+| ------------------- | ------------------------------------------------------------------------------------ | ---------------------- | -------------------------------------- |
+| [width]             | <code>number</code>                                                                  | <code>300</code>       | Request an initial canvas width.       |
+| [height]            | <code>number</code>                                                                  | <code>150</code>       | Request an initial canvas height.      |
+| [offscreen]         | <code>boolean</code>                                                                 | <code>false</code>     | Request an offscreen canvas.           |
+| [worker]            | <code>boolean</code>                                                                 | <code>false</code>     | Handle use in a worker.                |
+| [contextAttributes] | <code>CanvasRenderingContext2DSettings</code> \| <code>WebGLContextAttributes</code> | <code>{}</code>        | Attributes to be passed to getContext. |
+| [canvas]            | <code>HTMLCanvasElement</code>                                                       | <code>undefined</code> | Canvas element to use.                 |
 
 <a name="CanvasContextReturnValue"></a>
 

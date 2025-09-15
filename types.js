@@ -9,6 +9,7 @@
  * @property {boolean} [offscreen=false] Request an offscreen canvas.
  * @property {boolean} [worker=false] Handle use in a worker.
  * @property {CanvasRenderingContext2DSettings | WebGLContextAttributes} [contextAttributes={}] Attributes to be passed to getContext.
+ * @property {HTMLCanvasElement} [canvas=undefined] Canvas element to use.
  */
 
 /**
